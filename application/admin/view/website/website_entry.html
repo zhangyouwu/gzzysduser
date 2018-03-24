@@ -1,0 +1,270 @@
+{include file='public/header'/}
+<body>
+    <!-- 顶部开始 -->
+    {include file='public/top'/}
+    <!-- 顶部结束 -->
+    <!-- 中部开始 -->
+    <div class="wrapper">
+        {include file='public/admin_menu'/}
+        <!-- 右侧主体开始 -->
+        <div class="page-content">
+          <div class="content">
+            <!-- 右侧内容框架，更改从这里开始 -->
+           
+           
+             <blockquote class="layui-elem-quote">
+                <div class="x-nav">
+                <span class="layui-breadcrumb">
+                  <a><cite>后台首页</cite></a>
+                  <a><cite>信息录入</cite></a>
+                  <a><cite>网站进度录入</cite></a>
+                </span>
+                    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"  href="javascript:location.replace(location.href);" title="刷新"><i class="layui-icon" style="line-height:30px">ဂ</i></a>
+                </div>
+            </blockquote>
+             <blockquote class="layui-elem-quote">
+                欢迎使用智越时代客户管理系统！<span class="f-14">联系方式： 0851-85770877</span>&nbsp;&nbsp;&nbsp;&nbsp;注意：每个页面都可以独立设置一个背景主题，如果想更换背景，请点击右边的转动框。
+            </blockquote>
+            <fieldset class="layui-elem-field layui-field-title site-title">
+              <legend><a name="default">基本信息（不可修改部分）</a></legend>
+            </fieldset>
+           <form class="layui-form " action="">
+          		<div class="layui-form-item">
+                    <label class="layui-form-label">公司名称</label>
+                    <div class="layui-input-block">
+                        <input type="text"  autocomplete="off" value="{$client.name}" disabled="disabled" class="layui-input">
+                    </div>
+                </div>
+               
+                <div class="layui-form-item">
+                    <label class="layui-form-label">商务负责人</label>
+                    <div class="layui-input-block">
+                        <input type="text"  autocomplete="off" value="{$client.serversw}" disabled="disabled"  class="layui-input">
+                    </div>
+                </div>
+              
+                 <div class="layui-form-item">
+                    <label class="layui-form-label">网站域名</label>
+                    <div class="layui-input-block">
+                        <input type="text"  autocomplete="off" value="{$client.url}" disabled="disabled" class="layui-input">
+                    </div>
+                </div>
+                
+              
+   
+                
+                
+         <fieldset class="layui-elem-field layui-field-title site-title">
+              <legend><a name="default">修改部分</a></legend>
+            </fieldset>
+                 <div class="layui-form-item">
+                   	<div class="layui-inline">
+                        <label class="layui-form-label">下单时间</label>
+                        <div class="layui-input-inline">
+                             <input type="text" name="w_order"  autocomplete="off" value="{$website.w_order}" class="layui-input">
+                        </div>
+                 	 </div>
+                     
+                   	<div class="layui-inline">
+                         <label class="layui-form-label">是否下单</label>
+                        <div class="layui-input-inline">
+                              <input type="radio" name="w_play" value="0" title="未下单" checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>未下单</span></div>
+                                 <input type="radio" name="w_play" value="1" title="已下单" {eq name="client['is_play']" value="1"}checked="checked" {/eq} ><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i><span>已下单</span></div>
+                        </div>
+                  	</div>
+                  </div>
+                 <div class="layui-form-item">
+                   	
+                   	<div class="layui-inline">
+                        <label class="layui-form-label">上线时间</label>
+                        <div class="layui-input-inline">
+                             <input type="text" name="w_online_time" value="{$website.w_online_time}" autocomplete="off"  class="layui-input">
+                        </div>
+                  	</div>
+                    <div class="layui-inline">
+                       
+                            <label class="layui-form-label">是否上线</label>
+                        <div class="layui-input-inline">
+                              <input type="radio" name="w_online" value="0" title="未上线" checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>未上线</span></div>
+                                 <input type="radio" name="w_online" value="1" title="已上线" {eq name="website.w_online" value="1"}checked="checked" {/eq} ><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i><span>已上线</span></div>
+                        </div>
+                     </div>
+                 	 </div>
+                  
+                
+                     
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">备注信息</label>
+                    <div class="layui-input-block">
+                        <textarea placeholder="请输入内容" name="w_info"  class="layui-textarea">{$website.w_info}</textarea>
+                    </div>
+                </div>
+                         
+         <fieldset class="layui-elem-field layui-field-title site-title">
+              <legend><a name="default">设计进度</a></legend>
+            </fieldset>
+                
+                
+                      <div class="layui-form-item">
+                   
+                        <div class="layui-inline">
+                            <label class="layui-form-label">设计状态</label>
+                            <div class="layui-input-inline">
+                                 <select name="w_designok" lay-filter="w_designok" >
+                                    <option value="0" {eq name="website.w_designok" value="0"}selected="selected" {/eq}>未开始</option>
+                                    <option value="1" {eq name="website.w_designok" value="1"}selected="selected" {/eq}>制作中</option>
+                                    <option value="2" {eq name="website.w_designok" value="2"}selected="selected" {/eq}>待验收</option>
+                                    <option value="3" {eq name="website.w_designok" value="3"}selected="selected" {/eq}>已完毕</option>
+                                   
+                                  </select>
+                            </div>
+                        </div>
+                         <div class="layui-inline">
+                            <label class="layui-form-label">出稿时间</label>
+                            <div class="layui-input-inline">
+                                  <input type="text" name="w_design" value="{$website.w_design}" autocomplete="off"  class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">设计稿地址</label>
+                            <div class="layui-input-inline">
+                                  <input type="text" name="w_designadd"  value="{$website.w_designadd}" autocomplete="off"  class="layui-input">
+                            </div>
+                        </div>
+                         <div class="layui-inline">
+                            <label class="layui-form-label">确定日期</label>
+                            <div class="layui-input-inline">
+                                  <input type="text" name="w_designtime" value="{$website.w_designtime}" autocomplete="off"  class="layui-input">
+                            </div>
+                        </div>
+                </div>
+                
+                                  
+         <fieldset class="layui-elem-field layui-field-title site-title">
+              <legend><a name="default">程序进度</a></legend>
+            </fieldset>
+                
+                
+                      <div class="layui-form-item">
+                   
+                        <div class="layui-inline">
+                            <label class="layui-form-label">程序状态</label>
+                            <div class="layui-input-inline">
+                                 <select name="w_programok" lay-filter="w_programok" >
+                                    <option value="0" {eq name="website.w_programok" value="0"}selected="selected" {/eq}>未开始</option>
+                                    <option value="1" {eq name="website.w_programok" value="1"}selected="selected" {/eq}>制作中</option>
+                                    <option value="2" {eq name="website.w_programok" value="2"}selected="selected" {/eq}>待验收</option>
+                                    <option value="3" {eq name="website.w_programok" value="3"}selected="selected" {/eq}>已完毕</option>
+                                   
+                                  </select>
+                            </div>
+                        </div>
+                         <div class="layui-inline">
+                            <label class="layui-form-label">程序地址</label>
+                            <div class="layui-input-inline">
+                                  <input type="text" name="w_programadd"  value="{$website.w_programadd}" autocomplete="off"  class="layui-input">
+                            </div>
+                        </div>
+                         <div class="layui-inline">
+                            <label class="layui-form-label">完毕时间</label>
+                            <div class="layui-input-inline">
+                                  <input type="text" name="w_program" value="{$website.w_program}" autocomplete="off"  class="layui-input">
+                            </div>
+                        </div>
+                       
+                         <div class="layui-inline">
+                            <label class="layui-form-label">确定日期</label>
+                            <div class="layui-input-inline">
+                                  <input type="text" name="w_programtime" value="{$website.w_programtime}" autocomplete="off"  class="layui-input">
+                            </div>
+                        </div>
+                </div>
+            
+               <!--隐藏域-->
+        <input type="hidden" name="w_id" value="{$client.id}"> 
+                   
+              
+                <div class="layui-form-item">
+                    <button class="layui-btn" lay-submit=""  id="peradd" lay-filter="add" style="margin-left:200px">提交</button>
+                </div>
+            </form>
+         
+            <!-- 右侧内容框架，更改从这里结束 -->
+          </div>
+        </div>
+        <!-- 右侧主体结束 -->
+    </div>
+    <!-- 中部结束 -->
+    <!-- 底部开始 -->
+    {include file='public/footer'/}
+    <!-- 底部结束 -->
+    <!-- 背景切换开始 -->
+    {include file='public/bg-changer'/}
+    <!-- 背景切换结束 -->
+    <script>
+    $(function  () {
+         $("#peradd").on("click",function(){
+                 $.ajax({
+                       type: 'POST',
+                       url: "{:url('website/save')}",
+                       data:  $(".layui-form").serialize(),
+                       dataType: "json",
+                        async: false,
+                    
+                    success: function(data){
+						console.log(data);
+                        if (data.status == 1) {
+                            layer.msg(data.message,{icon:6,time:3000});
+
+                        } else {
+                            layer.msg(data.message,{icon:6,time:5000});
+                        }
+                    }
+                  
+                });
+       })
+    })
+</script>
+    <!--
+    <script>
+    layui.use(['laydate'], function(){
+        laydate = layui.laydate;//日期插件
+
+        //以上模块根据需要引入
+        //
+
+
+
+        var start = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                end.min = datas; //开始日选好后，重置结束日的最小日期
+                end.start = datas //将结束日的初始值设定为开始日
+            }
+        };
+
+        var end = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                start.max = datas; //结束日选好后，重置开始日的最大日期
+            }
+        };
+
+        document.getElementById('LAY_demorange_s').onclick = function(){
+            start.elem = this;
+            laydate(start);
+        }
+        document.getElementById('LAY_demorange_e').onclick = function(){
+            end.elem = this
+            laydate(end);
+        }
+
+    });
+</script>-->
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+{include file='public/header'/}
+<body>
+<!-- 顶部开始 -->
+{include file='public/top'/}
+<!-- 顶部结束 -->
+<!-- 中部开始 -->
+<div class="wrapper">
+    {include file='public/admin_menu'/}
+    <!-- 右侧主体开始 -->
+    <div class="page-content">
+        <div class="content">
+            <!-- 右侧内容框架，更改从这里开始 -->
+            <blockquote class="layui-elem-quote">
+                <div class="x-nav">
+                <span class="layui-breadcrumb">
+                  <a><cite>后台首页</cite></a>
+                  <a><cite>进度管理</cite></a>
+                  <a><cite>备案进度</cite></a>
+                </span>
+                    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"  href="javascript:location.replace(location.href);" title="刷新"><i class="layui-icon" style="line-height:30px">ဂ</i></a>
+                </div>
+            </blockquote>
+            <div class="x-body">
+                 <xblock><form class="layui-form xbs" enctype="multipart/form-data" method="get" action="{:url('search')}" >
+                <div class="layui-form-pane" >
+              
+                    <div class="layui-form-item" style="display: inline-block;">
+                        <label class="layui-form-label xbs768">当前时间</label>
+                        <div class="layui-input-inline xbs768">
+                            <label class="layui-input" id="sTime"><script>setInterval("document.all.sTime.innerText=new   Date().toLocaleString()",1000)</script> </label>
+                        </div>
+                        <div class="layui-input-inline xbs768">
+                        
+                            <label class="layui-input" id="jnkc"> 
+									   <script>setInterval("jnkc.innerHTML=' 星期'+'日一二三四五六'.charAt (new Date().getDay());",1000);</script> </label>
+                        </div>
+                       
+                        
+                    </div>
+                </div>
+            </form>
+              <span class="x-right" style="line-height:40px;width: 100%;padding-right:20px"><span style="float:right">共有数据：{$count}个文件</span></span></xblock>
+              <div style="width:100%;" >
+                    {volist name='client_list' id='client'}
+              
+                  
+                    <div style="display:inline;width:25%;float:left">
+                  
+                    <div style="text-align:center;width:100%;height:100px;line-height:100px;">
+                        <i class="layui-icon" style="font-size: 80px;">&#xe60a;</i>
+                        
+                     </div>
+                      <h2 style="text-align:center;width:100%;height:30px;padding-top:0px;">   {$client.name}</h2>
+                      <div style="text-align:center;width:100%;height:30px;margin-bottom:60px;"><a href="{:url('beian/planshow')}?id={$client.id}" class="layui-btn layui-btn-warm " style=" background:rgba(0,0,0,0.6)" >  <i class="layui-icon">&#xe62c;</i>查看进度</a></div>
+                        
+                        
+                       
+                       
+                      
+                    </div>    
+                       
+                    {/volist}</div>
+                
+            </div>
+             
+            <!-- 右侧内容框架，更改从这里结束 -->
+        </div>
+    </div>
+    <!-- 右侧主体结束 -->
+</div>
+<!-- 中部结束 -->
+<!-- 底部开始 -->
+{include file='public/footer'/}
+<!-- 底部结束 -->
+<!-- 背景切换开始 -->
+{include file='public/bg-changer'/}
+<!-- 背景切换结束 -->
+<!-- 页面动态效果 -->
+<script>
+
+    layui.use(['laydate'], function(){
+        laydate = layui.laydate;//日期插件
+
+        //以上模块根据需要引入
+        //
+
+
+
+        var start = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                end.min = datas; //开始日选好后，重置结束日的最小日期
+                end.start = datas //将结束日的初始值设定为开始日
+            }
+        };
+
+        var end = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                start.max = datas; //结束日选好后，重置开始日的最大日期
+            }
+        };
+
+        document.getElementById('LAY_demorange_s').onclick = function(){
+            start.elem = this;
+            laydate(start);
+        }
+        document.getElementById('LAY_demorange_e').onclick = function(){
+            end.elem = this
+            laydate(end);
+        }
+
+    });
+
+    //批量删除提交
+    function delAll () {
+        layer.confirm('确认要删除吗？',function(index){
+            //捉到所有被选中的，发异步进行删除
+            layer.msg('删除成功', {icon: 1});
+        });
+    }
+    /*用户-添加*/
+    function download_add(title,url,w,h){
+        x_admin_show(title,url,w,h);
+    }
+    /*用户-查看*/
+    function download_show(title,url,id,w,h){
+        x_admin_show(title,url,w,h);
+    }
+
+    /*用户-停用*/
+    function download_stop(obj,id){
+        layer.confirm('确认要停用吗？',function(index){
+            //发异步把用户状态进行更改
+            $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="download_start(this,id)" href="javascript:;" title="启用"><i class="layui-icon">&#xe62f;</i></a>');
+            $(obj).parents("tr").find(".td-status").html('<span class="layui-btn layui-btn-disabled layui-btn-mini">已停用</span>');
+            $(obj).remove();
+            layer.msg('已停用!',{icon: 5,time:1000});
+        });
+    }
+
+    /*用户-启用*/
+    function download_start(obj,id){
+        layer.confirm('确认要启用吗？',function(index){
+            //发异步把用户状态进行更改
+            $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="download_stop(this,id)" href="javascript:;" title="停用"><i class="layui-icon">&#xe601;</i></a>');
+            $(obj).parents("tr").find(".td-status").html('<span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span>');
+            $(obj).remove();
+            layer.msg('已启用!',{icon: 6,time:1000});
+        });
+    }
+    // 用户-编辑
+    function download_edit (title,url,id,w,h) {
+        x_admin_show(title,url,w,h);
+    }
+    /*密码-修改*/
+  /*  function download_password(title,url,id,w,h){
+        x_admin_show(title,url,w,h);
+    }*/
+    /*用户-删除*/
+    function download_del(obj,id){
+        layer.confirm('确认要删除吗？',function(index){
+            //发异步删除数据
+            $.get("{:url('delete')}",{id:id});
+            $(obj).parents("tr").remove();
+            layer.msg('已删除!',{icon:1,time:1000});
+        });
+    }
+</script>
+
+</body>
+</html>

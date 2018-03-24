@@ -1,0 +1,170 @@
+
+<body>
+
+<div class="x-body">
+    <form class="layui-form layui-form-pane" enctype="multipart/form-data" method="get" action="{:url('updatedapart')}">
+  
+
+<div class="layui-form-item" style="margin-top:60px">
+                    	<div class="layui-inline">
+                        <label class="layui-form-label" style="font-size:18px;display:inline">姓名:</label>
+                            <div class="layui-input-inline" style="display:inline">
+                                 <input type="text" name="username"  style="background:none; border:none;font-size:18px" autocomplete="off" class="layui-input" value="{$data.name}" >
+                            </div>
+                           
+                    	</div>
+                    </div>
+               
+          <div class="layui-form-item" style="margin-top:30px">
+                   
+                        <label class="layui-form-label" style="font-size:18px;display:inline">部门:</label>
+                        <div class="layui-input-block"  style="font-size:18px;display:inline">
+                            <select id="s1" onChange="move()" name="depart">
+<!-- 根据id获取value，onchange（）触发函数move（）修改二级select的text值实现联动 -->
+  <option  value="s1">-- 请选择 --</option>
+  <!--默认选中-->
+   <option  value="1" {eq name="data['depart']" value="1"}selected{/eq}>管理层</option>
+   <option   value="2" {eq name="data['depart']" value="2"}selected{/eq}>商务</option>
+   <option   value="3" {eq name="data['depart']" value="3"}selected{/eq}>技术</option>
+   <option   value="3" {eq name="data['depart']" value="4"}selected{/eq}>后勤</option>
+</select>
+                        </div>
+                   
+                    
+                    
+                        <label class="layui-form-label" style="font-size:18px;display:inline">职位:</label>
+                        <div class="layui-input-block" style="font-size:18px;display:inline">
+                           <select id="s2" name="grade">
+                           {eq name="data['depart']" value="1"}
+   						 <option  value="1"  selected>领导</option>
+                         {else/}
+                          <option  value="2"   {eq name="data['grade']" value="2"}selected{/eq}>经理</option>
+                           <option  value="3"  {eq name="data['grade']" value="3"}selected{/eq}>普通员工</option>
+    {/eq}
+   <!--默认选中，动态生成option -->
+</select>
+                        </div>
+                    
+                </div>
+
+        <!--隐藏域-->
+
+        <input type="hidden" name="id" value="{$data.id}">
+            <div class="layui-form-item" style=" margin-left:100px; margin-top:30px;">
+               
+                <button  class="layui-btn" style="background:#3f3334;display: inline-block;
+    vertical-align: middle;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 18px;
+    background-color: #009688;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    opacity: 0.9;" lay-filter="edit" lay-submit="" id="edit" type="submit">
+                    保存
+                </button>
+            </div>
+    </form>
+   
+</div>
+<script type="text/javascript">
+function upperCase(x)
+{
+var y=document.getElementById(x).value
+document.getElementById(x).value=y.toUpperCase()
+}
+</script>
+<script>
+     function move()
+     {
+         var s1=document.getElementById("s1");
+         var s2=document.getElementById("s2");
+         <!-- 获取一级和二级的属性-->
+         var add;
+         if(s1.value=="1")
+         {
+             add=new Array("领导");
+             <!--比对value值，实现对应二级text值的动态生成-->
+         }else if(s1.value=="2")
+         {
+         add=new Array("经理","普通员工");
+<!--比对value值，实现对应二级text值的动态生成-->
+         }else if(s1.value=="3")
+         {
+			 
+             add=new Array("经理","普通员工");
+             <!--比对value值，实现对应二级text值的动态生成-->
+			 }else if(s1.value=="4")
+         {
+			 
+             add=new Array("经理","普通员工");
+             <!--比对value值，实现对应二级text值的动态生成-->
+        }else if(s1.value=="s1")
+          {
+              add=new Array("请选择");
+            }
+          else
+          {
+         add=null;
+         <!--若没有就为空，当然不可能出现的-->
+          }
+
+          s2.length=0;
+          for(var i=0;i<add.length;i++)
+          {
+              var ss=new Option();
+              ss.text=add[i].split()[0];
+
+              s2.add(ss);
+              <!--把text值添加到二级select中，显示出来-->
+          }
+
+     }
+</script>
+ <script>
+    layui.use(['laydate'], function(){
+        laydate = layui.laydate;//日期插件
+
+        //以上模块根据需要引入
+        //
+
+
+
+        var start = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                end.min = datas; //开始日选好后，重置结束日的最小日期
+                end.start = datas //将结束日的初始值设定为开始日
+            }
+        };
+
+        var end = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                start.max = datas; //结束日选好后，重置开始日的最大日期
+            }
+        };
+
+        document.getElementById('LAY_demorange_s').onclick = function(){
+            start.elem = this;
+            laydate(start);
+        }
+        document.getElementById('LAY_demorange_e').onclick = function(){
+            end.elem = this
+            laydate(end);
+        }
+
+    });
+</script>
+
+</body>
+
+</html>

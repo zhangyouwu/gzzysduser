@@ -1,0 +1,144 @@
+{include file='public/header'/}
+<body class="body_index">
+<!--顶部 开始-->
+{include file='public/top'/}
+<!--顶部 结束-->
+{include file='public/banner1'/}
+<div class="subchannel_main">
+    <div class="subchannel">
+        <ul class="subchannellist">
+         {volist name="singlepage" id="vo"}
+      
+                {eq name="vo.pid" value="3"}
+                    <li class="depth1"><a href="{:url("show")}?id={$vo.id}">{$vo.cate_name}</a></li>
+                {/eq}
+ 		{/volist}
+           
+        </ul>
+    </div>
+</div>
+<script>$(".subchannellist li").last().css("border-right","none");</script>
+<!--主体内容 开始-->
+<div class="picture">
+    <!--右侧区域 开始-->
+    <div id="right">
+        <div class="right_title1 ">
+            <span class="more"><a href="/class1.html" target="_blank">更多...</a></span>
+            <h2>
+                <img src="__STATIC__/images/titleleftbg.png" align="absmiddle"  />
+                <a href="#">基础业务
+                </a>
+                <img src="__STATIC__/images/titlerightbg.png"   align="absmiddle" />
+            </h2>
+        </div>
+        <div class="right_body1">
+            <ul class="thumblist" >
+                <!--循环开始-->
+                  {volist name="field" id="vo" length='4}
+                 
+                <li class="animated delay{$i}">
+                    <a href="{:url("detail")}?id={$vo.id}" target="_blank"><img src="__ROOT__/uploads/field/{$vo.image}" title="{$vo.title}" alt="{$vo.title}"/></a>
+                    <a class="info_wrap" href="{:url("detail")}?id={$vo.id}" target="_blank" title="{$vo.title}">
+                        <b></b>
+                        <span class="InfoTitle">{$vo.title}</span>
+                        <p>{$vo.desc}</p>
+                        <span class="ViewMore">查看更多 ></span>
+                    </a>
+                </li>
+              
+                {/volist}
+               <!--循环结束-->
+            </ul>
+        </div>
+        <div class="right_bottom1"></div>
+        <div class="right_title1 ">
+            <span class="more"><a href="/class2.html" target="_blank">更多...</a></span>
+            <h2><img src="__STATIC__/images/titleleftbg.png" align="absmiddle"  />
+                <a href="/class2.html">专项业务</a><img src="__STATIC__/images/titlerightbg.png"   align="absmiddle" />
+            </h2>
+        </div>
+        <div class="right_body1">
+            <ul class="thumblist" >
+                <!--循环开始-->
+          
+
+
+                 {volist name="field1" id="vo1" length='4'}
+
+                
+               		
+
+                <li class="animated delay{$i}">
+                    <a href="{:url("detail")}?id={$vo1.id}" target="_blank"><img src="__ROOT__/uploads/field/{$vo1.image}" title="{$vo1.title}" alt="{$vo1.title}"/></a>
+                    <a class="info_wrap" href="{:url("detail")}?id={$vo1.id}" target="_blank" title="{$vo1.title}">
+                        <b></b>
+                        <span class="InfoTitle">{$vo1.title}</span>
+                        <p>{$vo1.desc}</p>
+                        <span class="ViewMore">查看更多 ></span>
+                    </a>
+                </li>
+        	
+           
+                {/volist}<!--循环结束-->
+            </ul>
+        </div>
+        <div class="right_bottom1"></div>
+        <div class="right_title1 ">
+            <span class="more"><a href="/class3.html" target="_blank">更多...</a></span>
+            <h2><img src="__STATIC__/images/titleleftbg.png" align="absmiddle"  />
+                <a href="/class3.html">特色业务</a>
+                <img src="__STATIC__/images/titlerightbg.png"   align="absmiddle" />
+            </h2>
+        </div>
+        <div class="right_body1">
+            <ul class="thumblist" ><!--循环开始-->
+                 {volist name="field2" id="vo2" length='4'}
+                 
+                <li class="animated delay{$i}">
+                    <a href="{:url("detail")}?id={$vo2.id}" target="_blank"><img src="__ROOT__/uploads/field/{$vo2.image}" title="{$vo2.title}" alt="{$vo2.title}"/></a>
+                    <a class="info_wrap" href="{:url("detail")}?id={$vo2.id}" target="_blank" title="{$vo2.title}">
+                        <b></b>
+                        <span class="InfoTitle">{$vo2.title}</span>
+                        <p>{$vo2.desc}</p>
+                        <span class="ViewMore">查看更多 ></span>
+                    </a>
+                </li>
+              
+                {/volist}<!--循环结束-->
+            </ul>
+        </div>
+        <div class="right_bottom1"></div>
+        <div class="right_title1 ">
+            <span class="more"><a href="/class4.html" target="_blank">更多...</a></span>
+            <h2>
+                <img src="__STATIC__/images/titleleftbg.png" align="absmiddle"  />
+                <a href="/class4.html">经营业务</a>
+                <img src="__STATIC__/images/titlerightbg.png"   align="absmiddle" />
+            </h2>
+        </div>
+        <div class="right_body1">
+            <ul class="thumblist" ><!--循环开始-->
+                {volist name="field3" id="vo3" length='4'}
+                 
+                <li class="animated delay{$i}">
+                    <a href="{:url("detail")}?id={$vo3.id}" target="_blank"><img src="__ROOT__/uploads/field/{$vo3.image}" title="{$vo3.title}" alt="{$vo3.title}"/></a>
+                    <a class="info_wrap" href="{:url("detail")}?id={$vo3.id}" target="_blank" title="{$vo3.title}">
+                        <b></b>
+                        <span class="InfoTitle">{$vo3.title}</span>
+                        <p>{$vo3.desc}</p>
+                        <span class="ViewMore">查看更多 ></span>
+                    </a>
+                </li>
+              
+              
+                {/volist}<!--循环结束-->
+            </ul>
+        </div>
+        <div class="right_bottom1"></div>
+    </div><!--右侧区域 结束-->
+    <div class="clear"></div>
+</div><!--主体内容 结束-->
+<!--第五行频-->
+{include file='public/diwuping'/}
+<!--第五行频道 结束-->
+{include file='public/footer'/}

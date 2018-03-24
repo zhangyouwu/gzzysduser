@@ -1,0 +1,94 @@
+{include file='public/header'/}   
+<!--Logo 开始-->
+{include file='public/toplogo'/}     
+<!--网站Logo 结束-->
+{include file='public/mainnav'/}  
+<!--JS幻灯片 开始-->
+{include file='public/banner'/}  
+<!--JS幻灯片 结束-->
+<!--公告 开始-->
+{include file='public/notice'/}  
+<!--公告 结束-->
+<!--主体内容 开始-->
+<div class="picture">
+	<div class="subchannel_main">
+		<div class="subchannel">
+			<ul class="subchannellist">
+				 {volist name="caidan" id="vo"}
+                {eq name="vo.pid" value="4"}
+                    <li class="depth1"><a href="{:url("show")}?id={$vo.id}">{$vo.cate_name}</a></li>
+                {/eq}
+			{/volist}
+			</ul>
+		</div>
+	</div>
+	<!--右侧区域 开始-->
+	<div id="right">
+		<div class="right_title1 "><span class="more"><a href="/tlcp.html" target="_blank">更多...</a></span>
+		<h2><img src="__STATIC__/images/titleleftbg.png" align="absmiddle"  /><a href="__ROOT__/index.php/index/bases/show.html?id=40">育苗</a><img src="__STATIC__/images/titlerightbg.png"   align="absmiddle" /></h2>
+	</div>
+	<div class="right_body1">
+		<ul class="gridlist" >
+			<!--循环开始-->
+             {volist name="bases" id="vo"  length="4"}
+			<li class="animated delay{i}">
+				<a href="{:url("detail")}?id={$vo.id}" target="_blank"><img src="__ROOT__/uploads/bases/{$vo.image}" title="{$vo.title}" alt="{$vo.title}" class="chanpingshow" /></a><br />
+				<a href="{:url("detail")}?id={$vo.id}" target="_blank" title="{$vo.title}">{$vo.title}</a>
+			</li>
+		
+            {/volist}
+			<!--循环结束-->
+		</ul>
+	</div>
+	<div class="right_bottom1"></div>
+	<div class="right_title1 ">
+		<span class="more"><a href="/sptjj.html" target="_blank">更多...</a></span><h2>
+		<img src="__STATIC__/images/titleleftbg.png" align="absmiddle"  /><a href="__ROOT__/index.php/index/bases/show.html?id=41">绿化</a><img src="__STATIC__/images/titlerightbg.png"   align="absmiddle" /></h2>
+	</div>
+	<div class="right_body1">
+		<ul class="gridlist" ><!--循环开始-->
+			 {volist name="bases1" id="vo" length="4"}
+			<li class="animated delay{i}">
+				<a href="{:url("detail")}?id={$vo.id}" target="_blank"><img src="__ROOT__/uploads/bases/{$vo.image}" title="{$vo.title}" alt="{$vo.title}"/></a><br />
+				<a href="{:url("detail")}?id={$vo.id}" target="_blank" title="{$vo.title}">{$vo.title}</a>
+			</li>
+		
+            {/volist}<!--循环结束-->
+		</ul>
+	</div>
+	<div class="right_bottom1"></div>
+		<div class="right_title1 ">
+			<span class="more"><a href="/yycp.html" target="_blank">更多...</a></span>
+			<h2><img src="__STATIC__/images/titleleftbg.png" align="absmiddle"  /><a href="__ROOT__/index.php/index/bases/show.html?id=49">施肥</a><img src="__STATIC__/images/titlerightbg.png"   align="absmiddle" /></h2>
+		</div>
+		<div class="right_body1">
+			<ul class="gridlist" ><!--循环开始-->
+				 {volist name="bases2" id="vo"  length="4"}
+			<li class="animated delay{i}">
+				<a href="{:url("detail")}?id={$vo.id}" target="_blank"><img src="__ROOT__/uploads/bases/{$vo.image}" title="{$vo.title}" alt="{$vo.title}"/></a><br />
+				<a href="{:url("detail")}?id={$vo.id}" target="_blank" title="{$vo.title}">{$vo.title}</a>
+			</li>
+		
+            {/volist}<!--循环结束-->
+			</ul>
+		</div>
+        <div class="right_bottom1"></div>
+		<div class="right_title1 ">
+			<span class="more"><a href="/yycp.html" target="_blank">更多...</a></span>
+			<h2><img src="__STATIC__/images/titleleftbg.png" align="absmiddle"  /><a href="__ROOT__/index.php/index/bases/show.html?id=50">项目展示</a><img src="__STATIC__/images/titlerightbg.png"   align="absmiddle" /></h2>
+		</div>
+		<div class="right_body1">
+			<ul class="gridlist" ><!--循环开始-->
+				 {volist name="bases3" id="vo"  length="4"}
+			<li class="animated delay{i}">
+				<a href="{:url("detail")}?id={$vo.id}" target="_blank"><img src="__ROOT__/uploads/bases/{$vo.image}" title="{$vo.title}" alt="{$vo.title}"/></a><br />
+				<a href="{:url("detail")}?id={$vo.id}" target="_blank" title="{$vo.title}">{$vo.title}</a>
+			</li>
+		
+            {/volist}<!--循环结束-->
+			</ul>
+		</div>
+		<div class="right_bottom1"></div>
+		</div><!--右侧区域 结束--><div class="clear"></div></div><!--主体内容 结束-->
+
+{include file='public/footer'/}

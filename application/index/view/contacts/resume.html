@@ -1,0 +1,146 @@
+{include file='public/header'/}   
+<!--Logo 开始-->
+{include file='public/toplogo'/}     
+<!--网站Logo 结束-->
+{include file='public/mainnav'/}  
+<!--JS幻灯片 开始-->
+{include file='public/banner'/}  
+<!--JS幻灯片 结束-->
+<!--公告 开始-->
+{include file='public/notice'/}  
+<!--公告 结束-->
+<!--主体内容 开始-->
+<div class="single">
+
+
+ <div class="subchannel_main">
+     	<div class="subchannel">
+        	<ul class="subchannellist">
+            {volist name="caidan" id="vo"}
+                {eq name="vo.id" value="51"}
+                    <li class="depth1"><a href="{:url("index")}">{$vo.cate_name}</a></li>
+                {/eq}
+                 {eq name="vo.id" value="52"}
+                    <li class="depth1"><a href="{:url("job")}">{$vo.cate_name}</a></li>
+                {/eq}
+                 {eq name="vo.id" value="53"}
+                    <li class="depth1"><a href="{:url("map")}">{$vo.cate_name}</a></li>
+                {/eq}
+            {/volist}
+            </ul>
+        </div>
+    </div><!--右侧区域 开始-->
+    <div id="right">
+        <div class="right_title">
+            <!--当前位置 开始-->
+            <div id="location">
+                <b>当前位置：</b><a href="/" target="_self">网站首页</a>&nbsp;>>&nbsp;<a href="/aboutus.html" target="_self">关于我们</a>
+            </div>
+            <!--当前位置 结束-->
+            <h2>
+                <img src="__STATIC__/images/titleleftbg.png" align="absmiddle"  />
+                 
+
+      <td>{$jobresume.name}</td>
+
+        		
+                <img src="__STATIC__/images/titlerightbg.png"   align="absmiddle" />
+            </h2>
+        </div>
+        <div class="right_body" style="margin-top:30px;">
+   		
+              <div class="guestbook_table">
+                    <form method="post"  enctype="multipart/form-data" action="{:url('save')}?title={$jobresume.id}">
+                      <div class="mess1">
+                            <div class="mess2">姓名：</div>
+                            <div class="mess3"><input id="name" name="name" type="text"   class="form_text"    value="" /></div>   
+                             <div class="mess2">性别：</div>
+                            <div class="mess3"><input id="sex" name="sex" type="text"   class="form_text"    value="" /></div>
+                          <div class="mess2">电话：</div>
+                            <div class="mess3"><input id="tel" name="tel" type="text"   class="form_text"  maxlength="100"   value="" /></div>
+                        </div>
+                       
+                         <div class="mess1">
+                            <div class="mess2">籍贯：</div>
+                            <div class="mess3"><input id="native" name="native" type="text"   class="form_text"  maxlength="100"   value="" /></div>
+                                <div class="mess2">民族：</div>
+                            <div class="mess3"><input id="peoples" name="peoples" type="text"   class="form_text"  maxlength="100"   value="" /></div>
+                                <div class="mess2">政治面貌：</div>
+                            <div class="mess3"><input id="politics" name="politics" type="text"   class="form_text"  maxlength="100"   value="" /></div>
+                       </div>
+                       
+                         <div class="mess1">
+                            <div class="mess2">婚姻状况：</div>
+                           <div class="mess3"><input id="merriage" name="merriage" type="text"   class="form_text"  maxlength="100"   value="" /></div>
+                              <div class="mess2">健康状况：</div>
+                            <div class="mess3"><input id="health" name="health" type="text"   class="form_text"  maxlength="100"   value="" /></div>
+                             <div class="mess2">身高：</div>
+                            <div class="mess3"><input id="height" name="height" type="text"   class="form_text"  maxlength="100"   value="" /></div>
+                        </div>
+                       
+                         <div class="mess1">
+                           <div class="mess2">学历：</div>
+                            <div class="mess3"><input id="study" name="study" type="text"   class="form_text"  maxlength="100"   value="" /></div>
+                              <div class="mess2">毕业时间：</div>
+                            <div class="mess3"><input id="graduate" name="graduate" type="text"   class="form_text"  maxlength="100"   value="" /></div>
+                             <div class="mess2">出生年月：</div>
+                            <div class="mess3"><input id="year_mon" name="year_mon" type="text"   class="form_text"  maxlength="100"   value="" /></div>
+                        </div>
+                       
+                         <div class="mess1">
+                           <div class="mess2">教育背景：</div>
+                            <div class="mess4"><textarea id="edu"   name="edu" class="form_textarea"></textarea></div>
+                        </div>
+                       
+                         <div class="mess1">
+                            <div class="mess2">经历/经验：</div>
+                           <div class="mess4"><textarea id="exp"   name="exp" class="form_textarea"></textarea></div>
+                        </div>
+                       
+                         <div class="mess1"><div class="mess2"></div>
+                            <div class="mess4">
+                         
+                         <input class="form_button btn"  type="submit" id="submit" value="提交" /></div>
+                        </div>
+                       
+                    </form>
+                </div>
+            
+            
+			
+		    {include file='public/share'/}
+                   
+    
+</div>
+     
+     
+           
+
+
+
+            <br />
+           
+         
+            </div>
+            
+           
+        </div>
+        	
+        <div class="right_bottom"></div>
+    </div>
+    <!--右侧区域 结束-->
+    <div class="clear"></div>
+</div>
+<!--主体内容 结束-->
+
+
+    <!--          浮层框架开始         -->
+
+
+
+
+    <!--  浮层框架结束-->
+
+
+
+{include file='public/footer'/}

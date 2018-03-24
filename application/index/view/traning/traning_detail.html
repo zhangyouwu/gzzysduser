@@ -1,0 +1,63 @@
+{include file='public/header'/}   
+<!--Logo 开始-->
+{include file='public/toplogo'/}     
+<!--网站Logo 结束-->
+{include file='public/mainnav'/}  
+<!--JS幻灯片 开始-->
+{include file='public/banner'/}  
+<!--JS幻灯片 结束-->
+<!--公告 开始-->
+{include file='public/notice'/}  
+<!--公告 结束-->
+<!--主体内容 开始-->
+<div class="article">
+	<div id="right">
+    	<div class="right_title"><!--当前位置 开始-->
+        	<div id="location">
+            	<div class="left_title2"><h2><span class="ChannelName">公司新闻</span><span class="ChannelSContent"></span></h2></div>
+                <div class="left_body2"><b>当前位置：</b><a href="/" target="_self">网站首页</a>&nbsp;>>&nbsp;<a href="/traning.html" target="_self">新闻资讯</a>&nbsp;>>&nbsp;<a href="/companytraning.html" target="_self">公司新闻</a>&nbsp;>>&nbsp;<a href="#" target="_self">查看详情</a>
+                </div>
+                <div class="left_bottom2"></div>
+            </div><!--当前位置 结束-->
+              <div class="subchannel_main">
+     	<div class="subchannel">
+        	<ul class="subchannellist">
+            	 {volist name="caidan" id="vo"}
+                {eq name="vo.id" value="30"}
+                    <li class="depth1"><a href="{:url("index")}">{$vo.cate_name}</a></li>
+                {/eq}
+                 {eq name="vo.id" value="31"}
+                    <li class="depth1"><a href="{:url("report")}">{$vo.cate_name}</a></li>
+                {/eq}
+            {/volist}
+            </ul>
+        </div>
+    </div><!--右侧区域 开始-->
+         
+        </div>
+        <div class="right_body">
+        	<div class="InfoTitle"><img src="__STATIC__/images/titleleftbg.png" align="absmiddle"  /><h1>{$detail.title}</h1><img src="__STATIC__/images/titlerightbg.png"   align="absmiddle" /></div>
+            <div class="info_from_wrap"><b>来源：</b><a href="#" target="_blank">绿源</a>&nbsp;
+                            <b>日期：</b>{$detail.create_time}&nbsp;
+                           
+                          </div><!-- 频道/文章内容  开始--><div class="InfoSContent"></div><div class="InfoContent">{$detail.content}</div><!-- 频道/文章内容  结束-->
+                            
+        <!-- 当前信息 上一条 下一条  开始-->
+        
+        <div class="info_previous_next_wrap"><div class="Previous"><b>上一新闻：</b>
+        {empty name="front"}
+		<a>已经是第一条了</a>
+		{else /}
+ 		<a href="{:url("detail")}?id={$front.id}">{$front.title}</a>
+		{/empty}
+        </div>
+        <div class="Next"><b>下一新闻：</b>
+     
+       	{empty name="after"}
+		<a>已经是最后一条了</a>
+		{else /}
+ 		<a href="{:url("detail")}?id={$after.id}">{$after.title}</a>
+		{/empty}
+        </div></div><!-- 当前信息 上一条 下一条  结束--></div><div class="right_bottom"></div></div><div class="clear"></div></div><!--主体内容 结束-->
+      
+{include file='public/footer'/}

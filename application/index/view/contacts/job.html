@@ -1,0 +1,76 @@
+{include file='public/header'/}   
+<!--Logo 开始-->
+{include file='public/toplogo'/}     
+<!--网站Logo 结束-->
+{include file='public/mainnav'/}  
+<!--JS幻灯片 开始-->
+{include file='public/banner'/}  
+<!--JS幻灯片 结束-->
+<!--公告 开始-->
+{include file='public/notice'/}  
+<!--公告 结束-->
+<!--主体内容 开始-->
+<div class="single">
+ <div class="subchannel_main">
+     	<div class="subchannel">
+        	<ul class="subchannellist">
+            {volist name="caidan" id="vo"}
+                {eq name="vo.id" value="51"}
+                    <li class="depth1"><a href="{:url("index")}">{$vo.cate_name}</a></li>
+                {/eq}
+                 {eq name="vo.id" value="52"}
+                    <li class="depth1"><a href="{:url("job")}">{$vo.cate_name}</a></li>
+                {/eq}
+                 {eq name="vo.id" value="53"}
+                    <li class="depth1"><a href="{:url("map")}">{$vo.cate_name}</a></li>
+                {/eq}
+            {/volist}
+            </ul>
+        </div>
+    </div>
+<!--右侧区域 开始-->
+    <div id="right">
+        <div class="right_title">
+            <!--当前位置 开始-->
+            <div id="location">
+                <b>当前位置：</b><a href="/" target="_self">网站首页</a>&nbsp;>>&nbsp;<a href="/aboutus.html" target="_self">关于我们</a>
+            </div>
+            <!--当前位置 结束-->
+            <h2>
+                <img src="__STATIC__/images/titleleftbg.png" align="absmiddle"  />
+                  
+          		 {$singlepage.cate_name}
+        		
+                <img src="__STATIC__/images/titlerightbg.png"   align="absmiddle" />
+            </h2>
+        </div>
+        <div class="right_body">
+            <div class="ChannelContent">  {volist name="showjob" id="vo"}
+            <div> <div class="pos">发布职位：{$vo.name}</div>  </div>
+             <div class="renshu"> <div class="renshu1">招聘人数：{$vo.num}</div>  <div class="renshu1">工作地点：{$vo.place}</div> <div class="renshu1">薪资：{$vo.deal}</div></div>
+                    <div class="renzhi">任职资格：{$vo.desc}</div>
+                     
+            <div class="renzhi2">
+            
+            
+            <a href="{:url("detail")}?id={$vo.id}" class="jianl" >查看详情</a>&nbsp;&nbsp;
+            <a href="{:url("resume")}?id={$vo.id}"  class="jianl">投递简历</a></div>
+    
+</div>
+     
+     
+           
+
+
+       {/volist}<br />
+            </div>
+        </div>
+        	
+        <div class="right_bottom"></div>
+    </div>
+    <!--右侧区域 结束-->
+    <div class="clear"></div>
+</div>
+<!--主体内容 结束-->
+
+{include file='public/footer'/}

@@ -1,0 +1,46 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>普定县绿源苗业开发公司</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="普定县绿源苗业开发公司|绿源苗业|绿源"><meta name="keywords" content="普定县绿源苗业开发公司|绿源苗业|绿源">
+<meta name="description" content="普定县绿源苗业开发公司|绿源苗业|绿源">
+<link href="favicon.ico" type="image/x-icon" rel="icon">
+<link href="favicon.ico" type="image/x-icon" rel="shortcut icon">
+<link href="__STATIC__/lib/style.css" rel="stylesheet" type="text/css" />
+<link href="__STATIC__/lib/animate.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__STATIC__/lib/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/common.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/jquery.SuperSlide.js"></script>
+<!--[if lte IE 6]><script type="text/javascript" src="__STATIC__/lib/minmax.js"></script>
+<script type="text/javascript" src="__STATIC__/lib/pngfix.js"></script>
+<script language="javascript" type="text/javascript">EvPNG.fix("#logo img");</script><![endif]-->
+<script>	$(document).ready(function(e) {
+		pageInit();
+		function pageInit(){
+			if( $("#top_1").length > 0 ){
+				if( "1" == 1 ){
+					$.get("/public/getJson/l/cn", null, function(data){ UpdateLoginStatus(data['MemberID'], data['MemberName'], data['EnableMember']); },"json");
+				}else{
+					UpdateLoginStatus("", "", "1");
+				}
+			}
+		}
+		function UpdateLoginStatus(id, name, flag){
+			if(flag==0) return;
+			var html = "";
+			if( id ){
+				html += '<span class="MemberName">'+name+'&nbsp;</span>';
+				html += '<a href="/member/public/index" target="_blank">[会员中心]&nbsp;</a>';
+				html += '<a href="/member/public/logout" target="_self">[退出登录]</a>';
+			}else{
+				html += '<a href="/public/login/l/cn" target="_self">[登录]&nbsp;</a>';
+				html += '<a href="/public/reg/l/cn" target="_self">[注册]&nbsp;</a>';
+			}
+			$("#top_1").html( html );
+		}
+	});
+</script>
+{include file='public/base_css'/} 
+</head>

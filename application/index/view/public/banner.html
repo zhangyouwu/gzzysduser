@@ -1,0 +1,41 @@
+<div id="banner_main">
+	<!--幻灯片 开始-->
+		<div id="banner">
+			<ul class="bannerlist">
+                {volist name="sybanner" id="vo"}
+				<li style="background:#2B8A0E; ">
+					<a href="#" target="_blank" >
+					   <img  src="__ROOT__/uploads/{$vo.image}" alt="">
+					</a>
+				</li>
+				{/volist}
+				
+			</ul>
+		</div>
+		<div class="hd">
+			<ul>
+			</ul>
+		</div>
+        <div>
+
+</div>
+	<!--幻灯片 结束-->
+</div>
+<script>		if( $(".bannerlist li").length > 0 ){
+			$('#banner_main').slide({ titCell:'.hd ul', mainCell:'#banner ul', autoPlay:true, autoPage:true, delayTime:500, effect:'left'});
+			$(window).resize(function() {  CenterBanner(); });
+			$(document).ready(function(e) { CenterBanner(); });
+		}else{
+			$("#banner_main").hide();
+		}
+		
+		function CenterBanner(){
+			var imgWidth = parseInt( $(".bannerlist li img:first").width() );
+			if( imgWidth <= 0 ) return;
+			var winWidth = parseInt( $(window).width() );
+			var offset = parseInt( (winWidth-imgWidth)/2 );
+			$(".bannerlist li img").css("margin-left", offset+'px' );
+		}
+	</script>
+
+<!--JS幻灯片 结束-->

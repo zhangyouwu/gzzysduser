@@ -1,0 +1,148 @@
+﻿{include file='public/header'/}   
+<!--Logo 开始-->
+{include file='public/toplogo'/}     
+<!--网站Logo 结束-->
+{include file='public/mainnav'/}  
+<!--JS幻灯片 开始-->
+{include file='public/banner'/}  
+<!--JS幻灯片 结束-->
+<!--公告 开始-->
+{include file='public/notice1'/}  
+<!--公告 结束-->
+<!--主体内容 开始-->
+<div id="floor_1_main">
+	<div id="floor_1">
+		<div class="left_title1">
+			<h2>
+				<a href="__ROOT__/index.php/index/product/index" title="产品中心" target="_blank">
+					<span class="ChannelName">产品中心</span>
+                  
+					<span class="ChannelSContent">PRODUCT</span>
+
+				</a>
+			</h2>
+		</div>
+		<div class="left_body1">
+			<ul class="gridlist1">
+				<li class="n1"><a class="ChannelName" href="http://122.14.200.136:5002/index.php/index/product/show.html?id=61" title="苗木" target="_blank">苗木</a></li>
+				<li class="n2"><a class="ChannelName" href="http://122.14.200.136:5002/index.php/index/product/show.html?id=62" title="水果" target="_blank">水果</a></li>
+				<li class="n3"><a class="ChannelName" href="http://122.14.200.136:5002/index.php/index/product/show.html?id=63" title="药材" target="_blank">药材</a></li>
+				
+			</ul>
+		</div>
+		<div class="left_bottom1">
+			<ul class="gridlist2">
+				<!--循环开始-->
+                {volist name="product1" id="vo" length="8" }
+				<li class="n{$i} animated delay{$i}">
+                
+					<a href="__ROOT__/index.php/index/product/detail?id={$vo.id}" title="{$vo.title}" target="_blank"><img src="__ROOT__/uploads/product/{$vo.image}" title="{$vo.title}" alt="{$vo.title}" /></a>
+					<a class="InfoTitle" href="__ROOT__/index.php/index/product/detail?id={$vo.id}" title="苗木8" target="_blank">{$vo.title}</a>
+				</li>
+				
+                {/volist}
+				
+			<!--循环结束-->
+			</ul>
+			<ul class="gridlist2">
+				<!--循环开始-->
+		       {volist name="product2" id="vo" length="8" }
+				<li class="n{$i} animated delay{$i}">
+                
+					<a href="__ROOT__/index.php/index/product/detail?id={$vo.id}" title="{$vo.title}" target="_blank"><img src="__ROOT__/uploads/product/{$vo.image}" title="{$vo.title}" alt="{$vo.title}" /></a>
+					<a class="InfoTitle" href="__ROOT__/index.php/index/product/detail?id={$vo.id}" title="苗木8" target="_blank">{$vo.title}</a>
+				</li>
+				
+                {/volist}
+				<!--循环结束-->
+			</ul>
+			<ul class="gridlist2">
+				<!--循环开始-->
+				       {volist name="product3" id="vo" length="8" }
+				<li class="n{$i} animated delay{$i}">
+                
+					<a href="__ROOT__/index.php/index/product/detail?id={$vo.id}" title="{$vo.title}" target="_blank"><img src="__ROOT__/uploads/product/{$vo.image}" title="{$vo.title}" alt="{$vo.title}" /></a>
+					<a class="InfoTitle" href="__ROOT__/index.php/index/product/detail?id={$vo.id}" title="苗木8" target="_blank">{$vo.title}</a>
+				</li>
+				
+                {/volist}<!--循环结束-->
+			</ul>
+			
+			</div>
+		</div>
+		<script>$("#floor_1").slide({ titCell:".left_body1 .gridlist1 li", mainCell:".left_bottom1",autoPlay:false,effect:"leftLoop"});</script>
+
+	</div>
+	<div id="floor_2_main">
+		<div id="floor_2">
+			<div class="left_title4">
+				<h2>
+					<a href="__ROOT__/index.php/index/about/index" title="关于我们" target="_blank">
+						<span class="ChannelName">关于我们</span>
+						<span class="ChannelSContent">ABOUTS US</span>
+					</a>
+				</h2>
+		</div>
+		<div class="left_body4">
+			<div class="ChannelContent">
+	
+		
+			<p style="text-indent:2em; text-align:left;"><img src="__STATIC__/images/ewm.jpg" style="float:left; padding-right:40px;" /></p><p style="text-indent:2em; text-align:left;">普定县绿源苗业开发公司创建于2009年7月，注册资金1000
+
+万元，公司位于普定县农业循环园区内的后寨林场处，距离普定县城3公里，交通便利。公司以引种先进经果林品种示范、培育绿化苗木、经果林苗木、开展专业造林绿化、发展经果林种植示范基地、经果林种植、休闲农业与乡村旅游产业开发与新型职业农民技术培训实
+
+训为主要业务，拥有自主知识产权国家专利30余项，育苗基地500亩，培育出梨、核桃、柿子等优良品种53个，各类优质经果林采穗基地300亩。公司累计投资1.2亿元，在马场镇梅子村、滕家村等发展干果及经果林种植基地40000余亩，实施生态环境治理6000亩，实现年
+
+产值5000多万元，在公司的帮助和带动下，普定县不少农户纷纷加入经果林种植行列，有的已成了经营经果林产业的专业户，昔日无人问津的荒坡荒山、路边河堤之地都成了抢手的生财之地。公司的基地长期稳定吸纳务工就业岗位2000人以上，人均增收6000元以上。同
+
+时，在公司的引领带动下，发展从事经果林产业的农民专业合作社60余个，专业户8000余户，累计发展精品水果种植......&nbsp;<a href="__ROOT__/index.php/index/about/index">->查看详情</a></p>
+		</div>
+	</div>
+	<div class="left_bottom4"></div>
+</div>
+</div>
+<div id="floor_3_main">
+	<div id="floor_3">
+		<div class="left_title5">
+			<h2>
+				<a href="__ROOT__/index.php/index/news/index" target="_blank" ><span class="ChannelName">新闻资讯</span>
+				<span class="ChannelSContent">NEWS</span>
+				</a>
+			</h2>
+		</div>
+		<div class="left_body5">
+			<ul class="thumblist1">
+				<!--循环开始-->
+                 {volist name="news1" id="vo" length="2" }
+				<li class="n1 animated delay{$i}">
+					<a class="InfoPicture" href="__ROOT__/index.php/index/news/detail?id={$vo.id}" title="{$vo.title}" target="_blank">
+						<img src="__ROOT__/uploads/news/{$vo.image}" title="{$vo.title}" alt="{$vo.title}" />
+					</a>
+ 					<a class="info_wrap" href="__ROOT__/index.php/index/news/detail?id={$vo.id}" target="_blank">
+						<span class="InfoTitle">{$vo.title}</span><span class="InfoTime">{$vo.create_time}</span>
+						<p>{$vo.desc}...</p>
+					</a>
+				</li>
+				  {/volist}
+                    {volist name="news2" id="vo" length="3" }
+				<li class="n2 animated delay{$i}">
+					<a class="InfoPicture" href="__ROOT__/index.php/index/news/detail?id={$vo.id}" title="{$vo.title}" target="_blank">
+						<img src="__ROOT__/uploads/news/{$vo.image}" title="{$vo.title}" alt="{$vo.title}" />
+					</a>
+					<a class="info_wrap" href="__ROOT__/index.php/index/news/detail?id={$vo.id}" target="_blank">
+						<span class="InfoTitle">{$vo.title}</span>
+						<span class="InfoTime">{$vo.create_time}</span>
+						<p>{$vo.desc}...</p>
+					</a>
+				</li>
+				
+                   {/volist}
+				<!--循环结束-->
+			</ul>
+		</div>
+		<div class="left_bottom5"></div>
+	</div>
+</div>
+
+<!--主体内容 结束-->
+{include file='public/footer'/}  

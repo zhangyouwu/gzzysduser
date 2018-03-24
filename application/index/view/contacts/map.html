@@ -1,0 +1,54 @@
+{include file='public/header'/}   
+<!--Logo 开始-->
+{include file='public/toplogo'/}     
+<!--网站Logo 结束-->
+{include file='public/mainnav'/}  
+<!--JS幻灯片 开始-->
+{include file='public/banner'/}  
+<!--JS幻灯片 结束-->
+<!--公告 开始-->
+{include file='public/notice'/}  
+<!--公告 结束-->
+<!--主体内容 开始-->
+<div class="single">
+ <div class="subchannel_main">
+     	<div class="subchannel">
+        	<ul class="subchannellist">
+            	{volist name="caidan" id="vo"}
+                {eq name="vo.id" value="51"}
+                    <li class="depth1"><a href="{:url("index")}">{$vo.cate_name}</a></li>
+                {/eq}
+                 {eq name="vo.id" value="52"}
+                    <li class="depth1"><a href="{:url("job")}">{$vo.cate_name}</a></li>
+                {/eq}
+                 {eq name="vo.id" value="53"}
+                    <li class="depth1"><a href="{:url("map")}">{$vo.cate_name}</a></li>
+                {/eq}
+            {/volist}
+            </ul>
+        </div>
+    </div>
+    <!--右侧区域 开始-->
+    <div id="right">
+        <div class="right_title">
+            <!--当前位置 开始-->
+            <div id="location">
+                <b>当前位置：</b><a href="/" target="_self">网站首页</a>&nbsp;>>&nbsp;<a href="/contactus.html" target="_self">联系我们</a>
+            </div>
+            <!--当前位置 结束-->
+            <h2><img src="__STATIC__/images/titleleftbg.png" align="absmiddle"  />电子地图<img src="__STATIC__/images/titlerightbg.png"   align="absmiddle" /></h2>
+        </div>
+        <div class="right_body">
+            <div class="ChannelContent">
+
+               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br />
+                
+          
+ <iframe class="sogou_sugg_feedbackquan" frameborder="0" scrolling="no" src="http://ditu.amap.com/place/B035513VQ4" style="border: none;  height: 550px; width: 100%;  background: transparent; float:left; position:relative;"></iframe>
+ 
+ </div></div><div class="right_bottom"></div></div><!--右侧区域 结束--><div class="clear"></div></div><!--主体内容 结束-->
+
+
+
+
+{include file='public/footer'/}

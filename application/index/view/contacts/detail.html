@@ -1,0 +1,102 @@
+{include file='public/header'/}   
+<!--Logo 开始-->
+{include file='public/toplogo'/}     
+<!--网站Logo 结束-->
+{include file='public/mainnav'/}  
+<!--JS幻灯片 开始-->
+{include file='public/banner'/}  
+<!--JS幻灯片 结束-->
+<!--公告 开始-->
+{include file='public/notice'/}  
+<!--公告 结束-->
+<!--主体内容 开始-->
+<div class="single">
+<div class="subchannel_main">
+     	<div class="subchannel">
+        	<ul class="subchannellist">
+            {volist name="caidan" id="vo"}
+                {eq name="vo.id" value="51"}
+                    <li class="depth1"><a href="{:url("index")}">{$vo.cate_name}</a></li>
+                {/eq}
+                 {eq name="vo.id" value="52"}
+                    <li class="depth1"><a href="{:url("job")}">{$vo.cate_name}</a></li>
+                {/eq}
+                 {eq name="vo.id" value="53"}
+                    <li class="depth1"><a href="{:url("map")}">{$vo.cate_name}</a></li>
+                {/eq}
+            {/volist}
+            </ul>
+        </div>
+    </div>
+<!--右侧区域 开始-->
+    <div id="right">
+        <div class="right_title">
+            <!--当前位置 开始-->
+            <div id="location">
+                <b>当前位置：</b><a href="/" target="_self">网站首页</a>&nbsp;>>&nbsp;<a href="/aboutus.html" target="_self">关于我们</a>
+            </div>
+            <!--当前位置 结束-->
+            <h2>
+                <img src="__STATIC__/images/titleleftbg.png" align="absmiddle"  />
+                 
+			职位详情
+        		
+                <img src="__STATIC__/images/titlerightbg.png"   align="absmiddle" />
+            </h2>
+        </div>
+        <div class="right_body">
+   		
+                   
+            <div class="ChannelContent"> 
+         		<div id="showjob">
+            		<h1 class="title">{$jobshow.name}</h1>
+                    <ul class="paralist" style="visibility: visible;">
+                        <li style="height: 22px;">招聘人数:{$jobshow.num}</li>
+                        <li>工作地点:{$jobshow.place}</li>
+                        <li style="height: 22px;">工资待遇:{$jobshow.deal}</li>
+                        <li style="height: 22px;">发布日期:{$jobshow.create_time}</li>
+                        <li>有效期:不限 </li>
+                    </ul>
+
+					<h3 class="ctitle"><span>详细内容</span></h3>
+
+           <div class="jobc">{$jobshow.content}</div>
+            
+            
+			<div class="info_cv"><a href="{:url("resume")}?id={$jobshow.id}" target="_self" title="在线应聘" class="button orange">在线应聘</a></div>
+			
+                   
+    {include file='public/share'/}
+</div>
+     
+     
+           
+
+
+
+            <br />
+           
+         
+            </div>
+            
+           
+        </div>
+        	
+        <div class="right_bottom"></div>
+    </div>
+    <!--右侧区域 结束-->
+    <div class="clear"></div>
+</div>
+<!--主体内容 结束-->
+
+
+    <!--          浮层框架开始         -->
+
+
+
+
+    <!--  浮层框架结束-->
+
+
+
+{include file='public/footer'/}

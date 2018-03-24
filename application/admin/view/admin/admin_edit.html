@@ -1,0 +1,150 @@
+{include file='public/header'/}
+
+<body>
+
+<div class="x-body">
+    <form class="layui-form" enctype="multipart/form-data" method="get" action="{:url('update')}">
+           
+
+<div class="layui-form-item">
+                    	<div class="layui-inline">
+                        <label class="layui-form-label">账号</label>
+                            <div class="layui-input-inline">
+                                 <input type="text" name="username"   autocomplete="off" class="layui-input" value="{$data.username}">
+                            </div>
+                           
+                    	</div>
+                    </div>
+                
+                  
+                             
+                    	
+       
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">姓名</label>
+                        <div class="layui-input-block">
+                             <input type="text" name="name" autocomplete="off" class="layui-input" value="{$data.name}">
+                        </div>
+                    </div>
+                    
+                    <div class="layui-inline">
+                        <label class="layui-form-label">性别</label>
+                        <div class="layui-input-inline">{eq name="data['sex']" value="1"}
+                         <input type="radio" name="sex" value="1" title="男" checked=""><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i><span>男</span></div>
+                        <input type="radio" name="sex" value="0" title="女"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>女</span></div>
+                        {else/}
+                         <input type="radio" name="sex" value="1" title="男" ><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i><span>男</span></div>
+                        <input type="radio" name="sex" value="0" title="女"  checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>女</span></div>
+                        {/eq}
+                         
+                        </div>
+                    </div>
+                </div>
+                
+                   <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">邮箱</label>
+                        <div class="layui-input-block">
+                             <input type="text" name="email" autocomplete="off" class="layui-input" value="{$data.email}">
+                        </div>
+                    </div>
+                    </div>
+                    
+                    
+                   
+                 	<div class="layui-form-item">
+                    	<div class="layui-inline">
+                        <label class="layui-form-label">手机</label>
+                            <div class="layui-input-block">
+                                 <input type="text" name="phone" autocomplete="off" class="layui-input" value="{$data.phone}">
+                            </div>
+                    	</div>
+                    </div>
+                
+               
+        
+                
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">入职日期</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="entry_time" id="date"  autocomplete="off" value="{$data.entry_time}"   class="layui-input" onClick="layui.laydate({elem: this})">
+                        </div>
+                     
+                    </div>
+                </div>
+
+  <div class="layui-form-item" pane="">
+   								<label class="layui-form-label">是否在职</label>
+                    <div class="layui-input-inline">{eq name="data['is_job']" value="1"}
+                         <input type="radio" name="is_job" value="1" title="yes" checked=""><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i><span>yes</span></div>
+                        <input type="radio" name="is_job" value="0" title="no"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>no</span></div>
+                        {else/}
+                         <input type="radio" name="is_job" value="1" title="yes" ><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i><span>yes</span></div>
+                        <input type="radio" name="is_job" value="0" title="no"  checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>no</span></div>
+                        {/eq}
+                         
+                        </div>
+                </div>
+              
+				
+                
+                
+            
+
+        <!--隐藏域-->
+        <input type="hidden" name="id" value="{$data.id}">
+            <div class="layui-form-item">
+                <label for="edit" class="layui-form-label">
+                </label>
+                <button  class="layui-btn" lay-filter="edit" lay-submit="" id="edit" type="submit">
+                    保存
+                </button>
+            </div>
+    </form>
+   
+</div>
+ <script>
+    layui.use(['laydate'], function(){
+        laydate = layui.laydate;//日期插件
+
+        //以上模块根据需要引入
+        //
+
+
+
+        var start = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                end.min = datas; //开始日选好后，重置结束日的最小日期
+                end.start = datas //将结束日的初始值设定为开始日
+            }
+        };
+
+        var end = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                start.max = datas; //结束日选好后，重置开始日的最大日期
+            }
+        };
+
+        document.getElementById('LAY_demorange_s').onclick = function(){
+            start.elem = this;
+            laydate(start);
+        }
+        document.getElementById('LAY_demorange_e').onclick = function(){
+            end.elem = this
+            laydate(end);
+        }
+
+    });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+
+{include file='public/header'/}
+
+<body class="body_index">
+
+<!--顶部 开始-->
+{include file='public/top'/}
+<!--顶部 结束-->
+<!--Logo 开始-->
+{include file='public/banner1'/}
+<!--JS幻灯片 结束-->
+<div class="subchannel_main">
+    <div class="subchannel">
+        <ul class="subchannellist">
+        {volist name="singlepage" id="vo"}
+        {eq name="vo.pid" value="6"}
+            <li class="depth1"><a href="{:url("show")}?id={$vo.id}">{$vo.cate_name}</a></li>
+        {/eq}
+ 		{/volist}
+        </ul>
+    </div>
+</div>
+<script>$(".subchannellist li").last().css("border-right","none");</script>
+
+<!--主体内容 开始-->
+<div class="single"><!--右侧区域 开始-->
+    <div id="right">
+        <div class="right_title">
+            <!--当前位置 开始-->
+            <div id="location">
+                <b>当前位置：</b><a href="/" target="_self">网站首页</a>&nbsp;>>&nbsp;<a href="/aboutus.html" target="_self">关于我们</a>
+            </div>
+            <!--当前位置 结束-->
+            <h2>
+                <img src="__STATIC__/images/about/titleleftbg.png" align="absmiddle"  />
+                 
+
+      <td>{$jobresume.name}</td>
+
+        		
+                <img src="__STATIC__/images/about/titlerightbg.png"   align="absmiddle" />
+            </h2>
+        </div>
+        <div class="right_body" style="margin-top:30px;">
+   		
+              <table class="guestbook_table">
+                    <form method="post"  enctype="multipart/form-data" action="{:url('save')}?title={$jobresume.id}">
+                     <tr style="margin-bottom:100px">
+                            <th colspan="6" >&nbsp;
+                            </th>
+                        </tr>
+                        <tr>
+                            <th >姓名</th>
+                            <td><input id="name" name="name" type="text"   class="form_text"    value="" /></td>   
+                             <th>性别</th>
+                            <td><input id="sex" name="sex" type="text"   class="form_text"    value="" /></td>
+                           <th>电话</th>
+                            <td><input id="tel" name="tel" type="text"   class="form_text"  maxlength="100"   value="" /></td>
+                        </tr>
+                       
+                        <tr>
+                            <th>籍贯</th>
+                            <td><input id="native" name="native" type="text"   class="form_text"  maxlength="100"   value="" /></td>
+                                       <th>民族</th>
+                            <td><input id="peoples" name="peoples" type="text"   class="form_text"  maxlength="100"   value="" /></td>
+                                       <th>政治面貌</th>
+                            <td><input id="politics" name="politics" type="text"   class="form_text"  maxlength="100"   value="" /></td>
+                        </tr>
+                        
+                          <tr>
+                            <th>婚姻状况</th>
+                            <td><input id="merriage" name="merriage" type="text"   class="form_text"  maxlength="100"   value="" /></td>
+                                       <th>健康状况</th>
+                            <td><input id="health" name="health" type="text"   class="form_text"  maxlength="100"   value="" /></td>
+                                       <th>身高</th>
+                            <td><input id="height" name="height" type="text"   class="form_text"  maxlength="100"   value="" /></td>
+                        </tr>
+                           <tr>
+                            <th>学历</th>
+                            <td><input id="study" name="study" type="text"   class="form_text"  maxlength="100"   value="" /></td>
+                                       <th>毕业时间</th>
+                            <td><input id="graduate" name="graduate" type="text"   class="form_text"  maxlength="100"   value="" /></td>
+                                       <th>出生年月</th>
+                            <td><input id="year_mon" name="year_mon" type="text"   class="form_text"  maxlength="100"   value="" /></td>
+                        </tr>
+                       
+                         <tr>
+                            <th>教育背景</th>
+                            <td colspan="5"><textarea id="edu"   name="edu" class="form_textarea"></textarea></td>
+                        </tr>
+                           <tr>
+                            <th>经历/经验</th>
+                            <td colspan="5"><textarea id="exp"   name="exp" class="form_textarea"></textarea></td>
+                        </tr>
+                        
+                        <tr height="200" style="line-height:200px;">
+                            <td colspan="6" class="operation">
+                         
+                         <input class="form_button btn"  type="submit" id="submit" value="提交" /></td>
+                        </tr>
+                       
+                    </form>
+                </table>
+            
+            
+			
+		    {include file='public/share'/}
+                   
+    
+</div>
+     
+     
+           
+
+
+
+            <br />
+           
+         
+            </div>
+            
+           
+        </div>
+        	
+        <div class="right_bottom"></div>
+    </div>
+    <!--右侧区域 结束-->
+    <div class="clear"></div>
+</div>
+<!--主体内容 结束-->
+
+
+    <!--          浮层框架开始         -->
+
+
+
+
+    <!--  浮层框架结束-->
+
+
+
+<!--第五行频-->
+{include file='public/diwuping'/}
+<!--第五行频道 结束-->
+{include file='public/footer'/}

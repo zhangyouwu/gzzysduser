@@ -1,0 +1,57 @@
+
+{include file='public/header'/}
+
+<body class="body_index">
+
+<!--顶部 开始-->
+{include file='public/top'/}
+<!--顶部 结束-->
+<!--Logo 开始-->
+{include file='public/banner1'/}
+<!--JS幻灯片 结束-->
+<div class="subchannel_main">
+    <div class="subchannel">
+        <ul class="subchannellist">
+        {volist name="singlepage" id="vo"}
+            {eq name="vo.pid" value="6"}
+                <li class="depth1"><a href="{:url("show")}?id={$vo.id}">{$vo.cate_name}</a></li>
+            {/eq}
+ 		{/volist}
+        </ul>
+    </div>
+</div>
+<script>$(".subchannellist li").last().css("border-right","none");</script>
+<!--主体内容 开始-->
+<div class="single"><!--右侧区域 开始-->
+    <div id="right">
+        <div class="right_title">
+            <!--当前位置 开始-->
+            <div id="location">
+                <b>当前位置：</b><a href="/" target="_self">网站首页</a>&nbsp;>>&nbsp;<a href="/aboutus.html" target="_self">关于我们</a>
+            </div>
+            <!--当前位置 结束-->
+            <h2>
+                <img src="__STATIC__/images/about/titleleftbg.png" align="absmiddle"  />
+                  {volist name="singlepage" id="vo"}
+                   {eq name="vo.id" value="2"}
+           {$vo.cate_name}
+        		
+                <img src="__STATIC__/images/about/titlerightbg.png"   align="absmiddle" />
+            </h2>
+        </div>
+        <div class="right_body">
+            <div class="ChannelContent"> {$vo.content}<br />
+            </div>
+        </div>
+        	{/eq}
+    		{/volist}
+        <div class="right_bottom"></div>
+    </div>
+    <!--右侧区域 结束-->
+    <div class="clear"></div>
+</div>
+<!--主体内容 结束-->
+<!--第五行频-->
+{include file='public/diwuping'/}
+<!--第五行频道 结束-->
+{include file='public/footer'/}

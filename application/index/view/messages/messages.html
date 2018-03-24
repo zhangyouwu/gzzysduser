@@ -1,0 +1,63 @@
+{include file='public/header'/}   
+<!--Logo 开始-->
+{include file='public/toplogo'/}     
+<!--网站Logo 结束-->
+{include file='public/mainnav'/}  
+<!--JS幻灯片 开始-->
+{include file='public/banner'/}  
+<!--JS幻灯片 结束-->
+<!--公告 开始-->
+{include file='public/notice'/}  
+<!--公告 结束-->
+<!--主体内容 开始-->
+<div class="guestbook">
+    <!--右侧区域 开始-->
+    <div id="right">
+        <div class="right_title1">
+            <!--当前位置 开始-->
+            <div id="location">
+                <b>当前位置：</b><a href="/" target="_self">网站首页</a>&nbsp;>>&nbsp;<a href="/guestbook.html" target="_self">在线留言</a>
+            </div>
+            <!--当前位置 结束-->
+            <h2><img src="__STATIC__/images/titleleftbg.png" align="absmiddle"  />在线留言<img src="__STATIC__/images/titlerightbg.png"   align="absmiddle" /></h2>
+        </div>
+        <div class="right_body1">
+            
+            <div class="message_title">我要留言</div>
+            <div class="message_body" >
+                <div class="guestbook_table">
+                    <form method="post"  enctype="multipart/form-data" action="{:url('save')}">
+                        <div class="mess1">
+                            <div class="mess2">留言人：</div>
+                            <div class="mess3"><input id="name" name="name" type="text"   class="form_text"  maxlength="100"   value="" /></div>
+                             <div class="mess2">手机号码：</div>
+                            <div class="mess3"><input id="tel" name="tel" type="text"   class="form_text"  maxlength="100"   value="" /></div>
+                             <div class="mess2">邮箱：</div>
+                            <div class="mess3"><input id="email" name="email" type="text"   class="form_text"  maxlength="100"   value="" /></div>
+                        </div>
+                        <div class="mess1">
+                           <div class="mess2">主题：</div>
+                           <div class="mess4"><input id="theme" name="theme" type="text"   class="form_text"  maxlength="100"   value="" /></div>
+                            
+                        </div>
+                       <div class="mess1">
+                            <div class="mess2">内容：</div>
+                            <div class="mess4"><textarea id="content"   name="content" class="form_textarea"></textarea></div>
+                        </div>
+                        
+                      
+                       <div class="mess1">
+                            <div  class="operation"><input class="form_button btn"  type="submit" value="提交" /></div>
+                        </div>
+                       
+                    </form>
+                </div>
+            </div>
+        </div>
+         <ul class="guestbooklist">暂无信息</ul>
+            <div class="page"></div>
+            <div class="clear"></div>
+        <div class="right_bottom1"></div>
+    </div><!--右侧区域 结束-->
+    <div class="clear"></div></div><!--主体内容 结束-->
+{include file='public/footer'/}

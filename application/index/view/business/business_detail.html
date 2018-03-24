@@ -1,0 +1,82 @@
+
+{include file='public/header'/}
+
+<body class="body_index">
+
+<!--顶部 开始-->
+{include file='public/top'/}
+<!--顶部 结束-->
+<!--Logo 开始-->
+{include file='public/banner1'/}
+<!--JS幻灯片 结束-->
+<div class="subchannel_main">
+    <div class="subchannel">
+        <ul class="subchannellist">
+        {volist name="singlepage" id="vo"}
+        {eq name="vo.pid" value="3"}
+            <li class="depth1"><a href="{:url("show")}?id={$vo.id}">{$vo.cate_name}</a></li>
+        {/eq}
+ 		{/volist}
+        </ul>
+    </div>
+</div>
+<script>$(".subchannellist li").last().css("border-right","none");</script>
+  <!--主体内容 开始-->
+  <div class="picture">
+  	<!--右侧区域 开始-->
+    	<div id="right">
+        	<div class="right_title1 ">
+            	<span class="more"><a href="/class1.html" target="_blank">更多...</a></span>
+                <h2>
+                	<img src="__STATIC__/images/titleleftbg.png" align="absmiddle"  />
+                    <a href="#">业务详情
+                    </a>
+                    <img src="__STATIC__/images/titlerightbg.png"   align="absmiddle" />
+                </h2>
+             </div>
+            <div class="right_body">
+            	<div class="info_product_detail_wrap">
+                	<table class="detail_table" align="center">
+                    	<tr>
+                        	<th>
+                            	<img src="__ROOT__/uploads/field/{$detail.image}" class="tianjiade" title="{$detail.title}" alt="{$detail.title}" />
+                            </th>
+                            <td valign="top" style="padding-left:30px">
+                            	<div class="InfoTitle"><h1>{$detail.title}</h1></div>
+                                <div>
+                                	<b>点击次数：</b>
+                                    <span class="InfoHit">448</span>
+                                </div>
+                                <b>发布时间：</b>
+                                	<span class="InfoTime">{$detail.create_time}</span>
+                                <br/>
+                                <div class="WantOrder" style="display:none;">
+                                	<a class="btn" href="/order179.html" target="_blank">我要订购</a>
+                                </div>
+                            </td>
+                         </tr>
+                      </table>
+                  </div>
+                  <div class="ProductDescription"></div>
+                  <!-- 频道/文章内容  开始-->
+                  <div class="InfoSContent"></div>
+                  <br/>
+                  <div class="ProductDescription"><b>业务介绍：</b></div>
+                  <div class="InfoContent">{$detail.content}</div>
+                  <!-- 频道/文章内容  结束--><!-- 当前信息 上一条 下一条  开始-->
+                  <div class="info_previous_next_wrap">
+                  	<div class="Previous">
+                    	<b>上一条：</b><a  href="{:url("pageshang")}?id={$detail.id}" title="进口贸易">1111</a>
+                    </div>
+                    <div class="Next">
+                    	<b>下一条：</b><a  href="{:url("pagexia")}?id={$detail.id}" title="出口贸易产品">出口贸易产品</a>
+                    </div>
+                  </div><!-- 当前信息 上一条 下一条  结束-->
+               </div>
+               <div class="right_bottom"></div></div><!--右侧区域 结束--><div class="clear"></div></div><!--主体内容 结束-->
+            
+            
+<!--第五行频-->
+{include file='public/diwuping'/}
+<!--第五行频道 结束-->
+{include file='public/footer'/}

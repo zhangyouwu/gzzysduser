@@ -1,0 +1,39 @@
+<!--公告 开始-->
+<div id="announcement_main">
+	<div id="announcement">
+		<div id="announcement_1">
+			<div class="announcement_title">网站公告：</div>
+			<div class="announcement_body">
+				<ul class="announcementlist">
+                 {volist name="notice" id="vo"}
+					<li><a href="__ROOT__/index.php/index/news/detail.html?id={$vo.id}" target="_blank" title="{$vo.title}">{$vo.title}</a>[{$vo.create_time}]</li>
+					{/volist}
+				</ul>
+			</div>
+			<div class="announcement_bottom">
+				<span class="more" >
+					<a href="/annnouncement.html" target="_blank">更多...</a>
+				</span>
+			</div>
+		</div>
+		<div id="announcement_2">
+		<form class="frmInfoSearch"  enctype="multipart/form-data" method="get" action="{:url("/index.php/index/news/search")}">
+			<table class="search_table">
+				<tr>
+					<th><input name="tit" class="form_text" type="text" value="" maxlength="50" />
+					</th>
+					<td><input class="form_button btn btn-small" type="submit" value="搜索"  /></td>
+				</tr>
+			</table>
+		</form>
+		</div>
+	</div>
+</div>
+<script type='text/javascript'>
+		$(document).ready(function(){
+			$('#announcement').slide({
+				  mainCell:'ul.announcementlist', autoPlay:true, interTime:3000,     vis:1,    effect:'topLoop'
+			});
+		})
+	</script>
+<!--公告 结束-->

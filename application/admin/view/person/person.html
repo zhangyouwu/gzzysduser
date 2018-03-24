@@ -1,0 +1,111 @@
+{include file='public/header'/}
+<body>
+    <!-- 顶部开始 -->
+    {include file='public/top'/}
+    <!-- 顶部结束 -->
+    <!-- 中部开始 -->
+    <div class="wrapper">
+        {include file='public/admin_menu'/}
+        <!-- 右侧主体开始 -->
+        <div class="page-content">
+          <div class="content">
+            <!-- 右侧内容框架，更改从这里开始 -->
+           
+            <blockquote class="layui-elem-quote">
+                
+                <span class="layui-breadcrumb">
+                  <a><cite>后台首页</cite></a>
+                  <a><cite>个人中心</cite></a>
+                  <a><cite>个人信息</cite></a>
+                </span>
+                    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"  href="javascript:location.replace(location.href);" title="刷新"><i class="layui-icon" style="line-height:30px">ဂ</i></a>
+            </blockquote>
+             <blockquote class="layui-elem-quote">
+                欢迎使用智越时代客户管理系统！<span class="f-14">联系方式： 0851-85770877</span>&nbsp;&nbsp;&nbsp;&nbsp;注意：每个页面都可以独立设置一个背景主题，如果想更换背景，请点击右边的转动框。
+            </blockquote>
+            <fieldset class="layui-elem-field layui-field-title site-title">
+              <legend><a name="default">个人信息展示</a></legend>
+            </fieldset>
+            <div style="width:100%;float:left;">
+            <div style="float:left;width:30%; display:inline;">
+            <p style=""><img src="__ROOT__/uploads/toux/{$uif.image}" style="  -moz-border-radius: 15px; 
+    -webkit-border-radius: 45px;  width:80%;margin-top:20px"/></p>
+            <p style="text-align:center;margin-top:10px"> <h2 class="bg11" style="text-align:center; height:45px;width:80%;light-height:45px;font-size:36px;  -moz-border-radius: 15px; 
+    -webkit-border-radius: 15px; ">{$uif.name}</h2></p>
+            
+            </div>
+              <div style="float:left;width:69%; display:inline;">
+            <table class="layui-table">
+                
+                <tbody>
+                 <tr>
+                         <th class="bg11 dywid">账号:</th><td>{$uif.username}</td>
+                    </tr>
+                    <tr>
+                         <th class="bg11 dywid">姓名:</th><td>{$uif.name}</td>
+                    </tr>
+                     <tr>
+                         <th class="bg11 dywid">性别:</th><td>{eq name="uif['sex']" value="1"}男{else/}女{/eq}</td>
+                    </tr>
+                     <tr>
+                         <th class="bg11 dywid">手机:</th><td>{$uif.phone}</td>
+                    </tr>
+                    <tr>
+                         <th class="bg11 dywid">邮箱:</th><td>{$uif.email}</td>
+                    </tr>
+                    <tr>
+                         <th class="bg11 dywid">入职时间:</th><td>{$uif.entry_time}</td>
+                    </tr>
+                    <tr>
+                         <th class="bg11 dywid">离职时间:</th><td>{$uif.left_time}</td>
+                    </tr>
+                     <tr>
+                         <th class="bg11 dywid">所在部门:</th><td>{switch name="uif['depart']" }
+    {case value="1" }管理层{/case}
+    {case value="2"}商务{/case}
+      {case value="3"}技术{/case}
+        {case value="4"}后勤{/case}
+    {default /}管理层
+{/switch}</td>
+                    </tr>
+                      <tr>
+                      {eq name="uif['depart']" value="1"}
+                        <th class="bg11 dywid">职位级别:</th><td>领导</td>
+                      {else/}
+                      <th class="bg11 dywid">职位级别:</th><td>
+                      {switch name="uif['grade']" }
+   
+    					{case value="2"}经理{/case}
+      					{case value="3"}普通员工{/case}
+   						 {default /}未确定
+						{/switch}
+                      </td>
+                      {/eq}
+                       
+                    </tr>
+                     <tr>
+                         <th class="bg11 dywid">个性签名:</th><td>{$uif.card}</td>
+                    </tr>
+               
+               
+                 
+                </tbody>
+            </table>
+            </div>
+            </div>
+         
+            <!-- 右侧内容框架，更改从这里结束 -->
+          </div>
+        </div>
+        <!-- 右侧主体结束 -->
+    </div>
+    <!-- 中部结束 -->
+    <!-- 底部开始 -->
+    {include file='public/footer'/}
+    <!-- 底部结束 -->
+    <!-- 背景切换开始 -->
+    {include file='public/bg-changer'/}
+    <!-- 背景切换结束 -->
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+
+{include file='public/header'/}
+
+<body class="body_index">
+
+<!--顶部 开始-->
+{include file='public/top'/}
+<!--顶部 结束-->
+<!--Logo 开始-->
+{include file='public/banner1'/}
+<!--JS幻灯片 结束-->
+<div class="subchannel_main">
+    <div class="subchannel">
+        <ul class="subchannellist">
+        {volist name="singlepage" id="vo"}
+        {eq name="vo.pid" value="6"}
+            <li class="depth1"><a href="{:url("show")}?id={$vo.id}">{$vo.cate_name}</a></li>
+        {/eq}
+ 		{/volist}
+        </ul>
+    </div>
+</div>
+<script>$(".subchannellist li").last().css("border-right","none");</script>
+{include file='public/base_css'/}
+<!--主体内容 开始-->
+<div class="single"><!--右侧区域 开始-->
+    <div id="right">
+        <div class="right_title">
+            <!--当前位置 开始-->
+            <div id="location">
+                <b>当前位置：</b><a href="/" target="_self">网站首页</a>&nbsp;>>&nbsp;<a href="/aboutus.html" target="_self">关于我们</a>
+            </div>
+            <!--当前位置 结束-->
+            <h2>
+                <img src="__STATIC__/images/about/titleleftbg.png" align="absmiddle"  />
+                 
+			职位详情
+        		
+                <img src="__STATIC__/images/about/titlerightbg.png"   align="absmiddle" />
+            </h2>
+        </div>
+        <div class="right_body">
+   		
+                   
+            <div class="ChannelContent"> 
+         		<div id="showjob">
+            		<h1 class="title">{$jobshow.name}</h1>
+                    <ul class="paralist" style="visibility: visible;">
+                        <li style="height: 22px;"><span>招聘人数</span>{$jobshow.num}</li>
+                        <li><span>工作地点</span>{$jobshow.place}</li>
+                        <li style="height: 22px;"><span>工资待遇</span>{$jobshow.deal}</li>
+                        <li style="height: 22px;"><span>发布日期</span>{$jobshow.create_time}</li>
+                        <li><span>有效期</span>不限 </li>
+                    </ul>
+
+					<h3 class="ctitle"><span>详细内容</span></h3>
+
+           <div>{$jobshow.content}</div>
+            
+            
+			<div class="info_cv"><a href="#" target="_self" title="在线应聘" class="button orange">在线应聘</a></div>
+			
+                   
+    {include file='public/share'/}
+</div>
+     
+     
+           
+
+
+
+            <br />
+           
+         
+            </div>
+            
+           
+        </div>
+        	
+        <div class="right_bottom"></div>
+    </div>
+    <!--右侧区域 结束-->
+    <div class="clear"></div>
+</div>
+<!--主体内容 结束-->
+
+
+    <!--          浮层框架开始         -->
+
+
+
+
+    <!--  浮层框架结束-->
+
+
+
+<!--第五行频-->
+{include file='public/diwuping'/}
+<!--第五行频道 结束-->
+{include file='public/footer'/}

@@ -1,0 +1,96 @@
+
+{include file='public/header'/}
+
+<body class="body_index">
+
+<!--顶部 开始-->
+{include file='public/top'/}
+<!--顶部 结束-->
+<!--Logo 开始-->
+{include file='public/banner1'/}
+<!--JS幻灯片 结束-->
+<div class="subchannel_main">
+    <div class="subchannel">
+        <ul class="subchannellist">
+        {volist name="singlepage" id="vo"}
+        {eq name="vo.pid" value="6"}
+            <li class="depth1"><a href="{:url("show")}?id={$vo.id}">{$vo.cate_name}</a></li>
+        {/eq}
+ 		{/volist}
+        </ul>
+    </div>
+</div>
+<script>$(".subchannellist li").last().css("border-right","none");</script>
+<style>
+.jobnone{display:none}
+</style>
+<!--主体内容 开始-->
+<div class="single"><!--右侧区域 开始-->
+    <div id="right">
+        <div class="right_title">
+            <!--当前位置 开始-->
+            <div id="location">
+                <b>当前位置：</b><a href="/" target="_self">网站首页</a>&nbsp;>>&nbsp;<a href="/aboutus.html" target="_self">关于我们</a>
+            </div>
+            <!--当前位置 结束-->
+            <h2>
+                <img src="__STATIC__/images/about/titleleftbg.png" align="absmiddle"  />
+                 
+           {$show.cate_name}
+        		
+                <img src="__STATIC__/images/about/titlerightbg.png"   align="absmiddle" />
+            </h2>
+        </div>
+        <div class="right_body">
+   			{eq name="$show.id" value="48"}
+                   
+            <div class="ChannelContent"> 
+            {volist name="jobshow" id="vo"}
+            <div> <div style="float:left;width:100%; line-height:50px;font-size:16px; font-weight:bold;">发布职位：{$vo.name}</div>  </div>
+             <div style="font-size:16px; line-height:30px;"> <div style="float:left;width:25%;">招聘人数：{$vo.num}</div>  <div style="float:left; width:25%;">工作地点：{$vo.place}</div> <div style="float:left; width:25%;">薪资：{$vo.deal}</div></div>
+                    <div style="width:100%; float:left; font-size:16px; line-height:30px; ">任职资格：{$vo.desc}</div>
+                     
+            <div style="width:100%; float:left; text-align:right;border-bottom:#999 1px dashed; margin-bottom:20px;margin-top:20px; padding-bottom:20px; line-height:50px;">
+            
+            
+            <a href="{:url("detail")}?id={$vo.id}" style="padding:20px 30px; font-size:16px; background:#0450a1; color:#fff;">查看详情</a>&nbsp;&nbsp;
+            <a href="{:url("resume")}?id={$vo.id}" style="padding:20px 30px;  font-size:16px;background:#0450a1; color:#fff;" onClick="a23()">投递简历</a></div>
+    
+</div>
+     
+     
+           
+
+
+       {/volist}
+            <br />
+            {else/}
+            <div class="ChannelContent"> {$show.content}<br />
+            {/eq}
+         
+            </div>
+            
+           
+        </div>
+        	
+        <div class="right_bottom"></div>
+    </div>
+    <!--右侧区域 结束-->
+    <div class="clear"></div>
+</div>
+<!--主体内容 结束-->
+
+
+    <!--          浮层框架开始         -->
+
+
+
+
+    <!--  浮层框架结束-->
+
+
+
+<!--第五行频-->
+{include file='public/diwuping'/}
+<!--第五行频道 结束-->
+{include file='public/footer'/}

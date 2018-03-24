@@ -1,0 +1,70 @@
+{include file='public/header'/}   
+<!--Logo 开始-->
+{include file='public/toplogo'/}     
+<!--网站Logo 结束-->
+{include file='public/mainnav'/}  
+<!--JS幻灯片 开始-->
+{include file='public/banner'/}  
+<!--JS幻灯片 结束-->
+<!--公告 开始-->
+{include file='public/notice'/}  
+<!--公告 结束-->
+<!--主体内容 开始-->
+<div class="article"><!--当前位置 开始-->
+	<div id="location">
+    	<div class="left_title2"><h2><span class="ChannelName">新闻资讯</span><span class="ChannelSContent">traning</span></h2></div>
+        <div class="left_body2"><b>当前位置：</b><a href="/" target="_self">网站首页</a>&nbsp;>>&nbsp;<a href="/traning.html" target="_self">新闻资讯</a></div>
+        <div class="left_bottom2"></div>
+     </div><!--当前位置 结束-->
+     <div class="subchannel_main">
+     	<div class="subchannel">
+        	<ul class="subchannellist">
+            	 {volist name="caidan" id="vo"}
+                {eq name="vo.id" value="30"}
+                    <li class="depth1"><a href="{:url("index")}">{$vo.cate_name}</a></li>
+                {/eq}
+                 {eq name="vo.id" value="31"}
+                    <li class="depth1"><a href="{:url("report")}">{$vo.cate_name}</a></li>
+                {/eq}
+            {/volist}
+            </ul>
+        </div>
+    </div><!--右侧区域 开始-->
+    <div id="right">
+    	<div class="right_title"><span class="more"><a href="/companytraning.html" target="_blank">更多...</a></span>
+        	<h2><img src="__STATIC__/images/titleleftbg.png" align="absmiddle"  /> {$singlepage.cate_name}<img src="__STATIC__/images/titlerightbg.png"   align="absmiddle" /></h2>
+        </div>
+        <div class="right_body">
+        	<ul class="thumblist"><!--循环开始-->
+               {volist name="report" id="vo"}
+               <!--*********************************************-->
+               
+             <div class="active" id="downloadlist">
+			<dl class="list-none metlist top">
+            <dt>文件名：<a href="__ROOT__/uploads/report/{$vo.url}">{$vo.title}</a></dt>
+            <dd><div><a href="#" target="_self" title="{$vo.create_time}">{$vo.create_time}</a> - 
+            <a href="__ROOT__/uploads/report/{$vo.url} " class="down" target="_self" title="点击下载">点击下载</a></div><span><b>文件描述</b>：{$vo.desc|mb_substr=0,20}</span></dd>
+            </dl>
+            </div>
+            
+      
+			
+		   
+		
+	
+               <!--*********************************************-->
+               
+               
+          
+             
+             
+ 			{/volist}
+
+
+<!--循环结束--></ul></div><div class="right_bottom"></div></div><!--右侧区域 结束-->
+
+<div class="clear"></div>
+<div id="page" class="pagecss" >{$report->render()}</div>
+</div><!--主体内容 结束-->
+
+{include file='public/footer'/}

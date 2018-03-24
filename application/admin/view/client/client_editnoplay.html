@@ -1,0 +1,113 @@
+{include file='public/header'/}
+
+<body>
+<div class="x-body">
+
+   
+            <form class="layui-form layui-form-pane"  action="">
+            
+                 
+            
+                <div class="layui-form-item">
+                    <label class="layui-form-label">公司名称</label>
+                   <div class="layui-input-block">
+                        <input type="text" name="name" placeholder="请输入" autocomplete="off" class="layui-input" value="{$data.name}">
+                    </div>
+                </div>
+
+               <div class="layui-form-item">
+                   	<div class="layui-inline">
+                         <label class="layui-form-label">是否下单</label>
+                        <div class="layui-input-block">
+                              <input type="radio" name="is_play" value="0" title="未下单" checked=""><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>未下单</span></div>
+                               <input type="radio" name="is_play" value="1" title="已下单" {eq name="data['is_play']" value="1"}checked="checked"{/eq}><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i><span>已下单</span></div>
+                        </div>
+                  	</div>
+                  </div>
+  
+               
+                  
+                  
+                  <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">未下单原因</label>
+                    <div class="layui-input-block">
+                        <textarea name="noplay" placeholder="请输入" class="layui-textarea">{$data.noplay}</textarea>
+                    </div>
+                </div>
+        
+                 <!--隐藏域-->
+            <input type="hidden" name="id" value="{$data.id}">
+                
+                  <div class="layui-form-item" style="text-align:center">
+                  
+                    <button  class="layui-btn" lay-filter="add" lay-submit="" id="clientnoplay">
+                       保存
+                    </button>
+        		</div>
+            </form>
+</div>
+    <script>
+    $(function  () {
+         $("#clientnoplay").on("click",function(){
+                 $.ajax({
+                       type: 'POST',
+                       url: "{:url('client/savenoplay')}",
+                       data:  $(".layui-form").serialize(),
+                       dataType: "json",
+                       async: false,
+                    success: function(data){
+                        if (data.status == 1) {
+							console.log(data);
+                           layer.msg(data.message,{icon:6,time:3000});  
+                        } else {
+						    console.log(data);		 
+                           layer.msg(data.message,{icon:6,time:3000});
+                        }
+                    }
+                  
+                });
+       })
+    })
+</script>
+<script>
+
+    layui.use(['laydate'], function(){
+        laydate = layui.laydate;//日期插件
+
+        //以上模块根据需要引入
+        //
+        var start = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                end.min = datas; //开始日选好后，重置结束日的最小日期
+                end.start = datas //将结束日的初始值设定为开始日
+            }
+        };
+
+        var end = {
+            min: laydate.now()
+            ,max: '2099-06-16 23:59:59'
+            ,istoday: false
+            ,choose: function(datas){
+                start.max = datas; //结束日选好后，重置开始日的最大日期
+            }
+        };
+
+        document.getElementById('LAY_demorange_s').onclick = function(){
+            start.elem = this;
+            laydate(start);
+        }
+        document.getElementById('LAY_demorange_e').onclick = function(){
+            end.elem = this
+            laydate(end);
+        }
+
+    });
+    </script>
+
+</body>
+
+
+</html>
